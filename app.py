@@ -1,3 +1,7 @@
-from data.crud import criar_usuario, faze
+import streamlit as st
 
-print(criar_usuario("Luiz Guilherme da Silva", "pdi@intermetro.com.br", "gui123", "admin"))
+paginas = st.navigation([
+    st.Page("./pages/login.py", title="Login")
+], position="hidden")
+
+paginas.run()

@@ -15,12 +15,12 @@ def criar_usuario(nome, email, senha, papel ):
 
 def fazer_login(email, senha):
     sessao = Sessao()
-    Usuario = sessao.query(Usuario).filter_by(email = email).first()
+    usuario = sessao.query(Usuario).filter_by(email = email).first()
     
-    if not Usuario:
+    if not usuario:
         return {"status":"Erro", "mensagem":"Usuario não encontrado"}
     
-    if Usuario.senha != senha:
+    if usuario.senha != senha:
         return {"status":"Erro", "mensagem":"senha incorreta"}
     
     return {"status":"sucesso", "mensagem":"Acesso permitido"}
