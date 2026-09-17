@@ -20,7 +20,7 @@ class Ideia(base):
     usuarios_id = Column(Integer, ForeignKey("usuarios.id"))
     titulo = Column(String, nullable=False)
     estagio = Column(Integer, default=1)
-    pontos = Column(Integer, default=10)
+    pontos = Column(Integer, default=0)
     status = Column(String, default="Em análise")
     data_criacao = Column(DateTime, default=datetime.utcnow)
     conteudo = Column(JSON)

@@ -30,7 +30,17 @@ def fazer_login(email, senha):
         "papel" : usuario.papel
     }}
 
-def salva_ideia(conteudo):
-    
+def salva_ideia(usuarios_id, titulo, conteudo):
+    try:
+        sessao = Sessao()
+        nova = Ideia(usuarios_id = usuarios_id, titulo = titulo, conteudo = conteudo)
+        sessao.add(nova)
+        sessao.commit()
+        sessao.refresh(nova)
+        return {"status":"sucesso","retorno":nova}
+    except Exception as e:
+        return {"status":"erro", "retorno":e}
+
+
         
 

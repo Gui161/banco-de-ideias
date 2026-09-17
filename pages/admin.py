@@ -16,6 +16,7 @@ abas = st.tabs(["Nova Ideia", "Minhas ideias", ])
 
 with abas[0]:
     criar_nova_ideia()
+    
 
 with abas[1]:
     st.text("teste2")
