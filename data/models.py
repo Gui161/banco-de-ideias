@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, String, Integer, Float, ForeignKey, DateTime
+from sqlalchemy import create_engine, Column, String, Integer, Float, ForeignKey, DateTime, JSON
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 from data.data_base import base
 from datetime import datetime
@@ -23,5 +23,6 @@ class Ideia(base):
     pontos = Column(Integer, default=10)
     status = Column(String, default="Em análise")
     data_criacao = Column(DateTime, default=datetime.utcnow)
+    conteudo = Column(JSON)
 
     usuario = relationship("Usuario", back_populates="ideias")

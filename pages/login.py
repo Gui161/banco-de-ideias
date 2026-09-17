@@ -1,5 +1,6 @@
 import streamlit as st
 from data.crud import fazer_login
+import time
 
 
 st.title("Banco de Idéias Intermetro", text_alignment="center")
@@ -17,8 +18,19 @@ if "usuario" not in st.session_state:
             else:
                 resultado = fazer_login(email=email, senha=senha)
                 if resultado["status"] == "sucesso":
-                    st.success(resultado['mensagem'])
+                    usuario = resultado['usuario']
+                    st.session_state["usuario"] = usuario
+                    st.success(f"Bom vindo ao sistema {usuario['nome']}, você tem acessos de {usuario['papel']}")
+                    time.sleep(2)
+                    
+                    if usuario['papel'] == "admin":
+                        st.switch_page("pages/admin.py")
+                        
+                    
                 else:
                     st.error(resultado['mensagem'])
+
+else:
+    st.info("Você ja está logado")
             
             

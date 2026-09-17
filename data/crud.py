@@ -23,6 +23,14 @@ def fazer_login(email, senha):
     if usuario.senha != senha:
         return {"status":"Erro", "mensagem":"senha incorreta"}
     
-    return {"status":"sucesso", "mensagem":"Acesso permitido"}
+    return {"status":"sucesso", "usuario":{
+        "id" : usuario.id,
+        "nome" : usuario.nome,
+        "email": usuario.email,
+        "papel" : usuario.papel
+    }}
+
+def salva_ideia(conteudo):
+    
         
 
