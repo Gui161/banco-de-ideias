@@ -20,11 +20,14 @@ if "usuario" not in st.session_state:
                 if resultado["status"] == "sucesso":
                     usuario = resultado['usuario']
                     st.session_state["usuario"] = usuario
-                    st.success(f"Bom vindo ao sistema {usuario['nome']}, você tem acessos de {usuario['papel']}")
+                    st.success(f"Bem vindo ao sistema {usuario['nome']}, você tem acessos de {usuario['papel']}")
                     time.sleep(2)
                     
                     if usuario['papel'] == "admin":
                         st.switch_page("pages/admin.py")
+                    if usuario['papel'] == "usuario":
+                        st.switch_page("pages/usuario.py")
+                    
                         
                     
                 else:

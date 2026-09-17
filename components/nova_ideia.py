@@ -20,6 +20,7 @@ def criar_nova_ideia():
             resultado = salva_ideia(usuario['id'],titulo=titulo_ideia,conteudo= conteudo)
             if resultado['status'] == "sucesso":
                 st.success(f"Ideia cadastrada, {resultado['retorno']}")
+                st.balloons()
             else:
                 st.error(f"Erro ao cadatrar mensagem, {resultado['retorno']}")
             

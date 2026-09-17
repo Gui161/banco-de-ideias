@@ -42,5 +42,12 @@ def salva_ideia(usuarios_id, titulo, conteudo):
         return {"status":"erro", "retorno":e}
 
 
+def listar_ideias_por_usuario(usuario_id):
+    try:
+        sessao = Sessao()
+        ideias = sessao.query(Ideia).filter_by(usuarios_id = usuario_id).all()
+        return {"status":"sucesso","retorno":ideias}
+    except Exception as e:
+        return {"status":"Erro", "retorno":e}
         
 
