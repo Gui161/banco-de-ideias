@@ -13,11 +13,11 @@ if "usuario" not in st.session_state:
     
 with st.container():    
     st.title("Sistema de Ideias Intermetro")
-abas = st.tabs(["Nova Ideia", "Minhas ideias", ])
+abas = st.tabs(["Nova ideia", "Minhas ideias"])
 
 with abas[0]:
-    st.rerun()
+    
     criar_nova_ideia()
 with abas[1]:
-    st.rerun()
+    
     listar_ideias()

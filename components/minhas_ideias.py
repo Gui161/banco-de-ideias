@@ -8,12 +8,13 @@ def listar_ideias():
         resultado = listar_ideias_por_usuario(usuario_id= usuario['id'])
         if resultado['status'] == "sucesso":
             ideias = resultado['retorno']
-            colunas = st.columns(3)
-            for i, ideia in enumerate(ideias):
-                with colunas[i]:
-                    with st.container(border=True):
-                        st.markdown(f"### {ideia.titulo}", text_alignment="center")
-                        st.write(f"Status: {ideia.status}")
+            for i in range(0, len(ideias), 3):
+                colunas = st.columns(3)
+                for j, ideia in enumerate(ideias[i:i+3]):
+                    with colunas[j]:
+                        with st.container(border=True):
+                            st.markdown(f"### {ideia.titulo}")
+                            st.write(f"Status {ideia.status}")
                 
         else:
             st.error(resultado['retorno'])
